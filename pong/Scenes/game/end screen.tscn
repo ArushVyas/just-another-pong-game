@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://dht4ls4up814b"]
+
+[ext_resource type="Theme" uid="uid://dhnakbdmxdro0" path="res://Themes/LCD (Default).tres" id="1_dqnwy"]
+[ext_resource type="Script" uid="uid://bpvbcdhwwliri" path="res://Scripts/game/end screen/end_screen.gd" id="2_wgfhm"]
+[ext_resource type="Script" uid="uid://4wyqp250yggj" path="res://Scripts/game/end screen/score_left_display.gd" id="3_7av5g"]
+[ext_resource type="Script" uid="uid://bo67tnp1biupp" path="res://Scripts/game/end screen/score_right_display.gd" id="4_6b65e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4c07w"]
+font_size = 141
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4r7o"]
+font_size = 200
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_olo4o"]
+font_size = 200
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dqnwy")
+script = ExtResource("2_wgfhm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="you lose" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31875
+anchor_top = 0.176852
+anchor_right = 0.68125
+anchor_bottom = 0.297222
+offset_left = -6.10352e-05
+offset_top = -0.000183105
+offset_bottom = 0.000213623
+grow_horizontal = 2
+grow_vertical = 2
+text = "-Game Over-"
+label_settings = SubResource("LabelSettings_4c07w")
+metadata/_edit_use_anchors_ = true
+
+[node name="score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.459375
+anchor_top = 0.330555
+anchor_right = 0.540625
+anchor_bottom = 0.374074
+grow_horizontal = 2
+grow_vertical = 2
+text = "-score-"
+metadata/_edit_use_anchors_ = true
+
+[node name="Line2D" type="Line2D" parent="Panel"]
+position = Vector2(960, 445)
+points = PackedVector2Array(-1, -20, -1, 294)
+width = 8.0
+default_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="play again" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.432292
+anchor_top = 0.727778
+anchor_right = 0.567708
+anchor_bottom = 0.771296
+grow_horizontal = 2
+grow_vertical = 2
+text = "play again"
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4625
+anchor_top = 0.814815
+anchor_right = 0.5375
+anchor_bottom = 0.858333
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "home"
+metadata/_edit_use_anchors_ = true
+
+[node name="score left display" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 481.0
+offset_right = 810.0
+offset_bottom = 665.0
+label_settings = SubResource("LabelSettings_q4r7o")
+script = ExtResource("3_7av5g")
+
+[node name="score right display" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 481.0
+offset_right = 1190.0
+offset_bottom = 665.0
+label_settings = SubResource("LabelSettings_olo4o")
+script = ExtResource("4_6b65e")
+
+[connection signal="pressed" from="Panel/play again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Panel/home" to="." method="_on_home_pressed"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0gg66pviesth"]
+
+[ext_resource type="Theme" uid="uid://dhnakbdmxdro0" path="res://Themes/LCD (Default).tres" id="1_psmkp"]
+[ext_resource type="Texture2D" uid="uid://f77a7qww72jq" path="res://Assets/Images/how to play/back icon.png" id="2_grlho"]
+[ext_resource type="Script" uid="uid://hltxcu0nc4s5" path="res://Scripts/how to play/go_back.gd" id="3_v5k4f"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_f0khh"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_cep6l"]
+events = [SubResource("InputEventKey_f0khh")]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_psmkp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="go back" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00434028
+anchor_top = 0.0194444
+anchor_right = 0.03125
+anchor_bottom = 0.0672839
+shortcut = SubResource("Shortcut_cep6l")
+texture_normal = ExtResource("2_grlho")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_v5k4f")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.0675926
+anchor_right = 0.96875
+anchor_bottom = 0.932407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+metadata/_edit_use_anchors_ = true
+
+[node name="gameplay" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "gameplay:"
+
+[node name="gameplay example" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "it's a bit like tennis, or ping-pong.
+if your score reaches five, you win!
+"
+
+[node name="controls" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "controls:"
+
+[node name="controls example" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "use the 'W' and 'S' keys to control the left paddle.
+use the 'up arrow' and 'down arrow' keys to control the right paddle."

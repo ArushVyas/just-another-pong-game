@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwvarypj4iv7l"]
+
+[ext_resource type="Texture2D" uid="uid://x83kvnwjppcf" path="res://Assets/Images/gameplay/ball.png" id="1_2uiwn"]
+[ext_resource type="Script" path="res://Scripts/game/wall/character_body_2d.gd" id="1_4n3kb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14inv"]
+radius = 23.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy4i1"]
+size = Vector2(139, 1040)
+
+[node name="Game(wall)" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.511625, 0.508617)
+script = ExtResource("1_4n3kb")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(2.875, 2.875)
+texture = ExtResource("1_2uiwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(1, 0.992642)
+shape = SubResource("CircleShape2D_14inv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1209, 321.5)
+shape = SubResource("RectangleShape2D_iy4i1")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(620, 678)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_iy4i1")

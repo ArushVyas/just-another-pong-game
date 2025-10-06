@@ -1,0 +1,235 @@
+[gd_scene load_steps=27 format=3 uid="uid://dwvarypj4iv7l"]
+
+[ext_resource type="Script" uid="uid://tusno3qhjemq" path="res://Scripts/game/game master.gd" id="1_qvpjy"]
+[ext_resource type="Script" uid="uid://5r8cchuqajba" path="res://Scripts/game/ball.gd" id="2_o76s1"]
+[ext_resource type="Texture2D" uid="uid://x83kvnwjppcf" path="res://Assets/Images/gameplay/ball.png" id="3_8sicf"]
+[ext_resource type="Script" uid="uid://6wqhakfc1bpa" path="res://Scripts/game/paddle right.gd" id="4_2uqnb"]
+[ext_resource type="FontFile" uid="uid://crcdlyygaxdki" path="res://Themes/Fonts/ThaleahFat.ttf" id="4_jtvo2"]
+[ext_resource type="Texture2D" uid="uid://br1cbnsjp5hsw" path="res://Assets/Images/gameplay/pause_button.png" id="4_skglu"]
+[ext_resource type="Script" uid="uid://kxpvtm30a2ca" path="res://Scripts/game/scores/score_left.gd" id="5_52uja"]
+[ext_resource type="Theme" uid="uid://dhnakbdmxdro0" path="res://Themes/LCD (Default).tres" id="5_gjjct"]
+[ext_resource type="Script" uid="uid://tvcfxve73djy" path="res://Scripts/game/scores/score_right.gd" id="6_2m6xa"]
+[ext_resource type="Script" uid="uid://cggn45tkqh52p" path="res://Scripts/game/starting countdown.gd" id="6_8m1vr"]
+[ext_resource type="Script" uid="uid://bcwd7gbvwhc7p" path="res://Scripts/game/paddle_left.gd" id="7_wfr2k"]
+[ext_resource type="Script" uid="uid://cqx5vvaxgvi7j" path="res://Scripts/game/pause_button.gd" id="9_dwgmg"]
+[ext_resource type="PackedScene" uid="uid://neo4oor8eb6x" path="res://Scenes/game/pause menu.tscn" id="13_hvmgn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vycb3"]
+size = Vector2(2012, 175.002)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g07lr"]
+size = Vector2(2033, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r84ms"]
+size = Vector2(66, 1094)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g1wa"]
+size = Vector2(93.5, 1103.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6ev2"]
+font_size = 200
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_00aax"]
+font = ExtResource("4_jtvo2")
+font_size = 196
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14inv"]
+radius = 23.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3nmf"]
+size = Vector2(24, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu74p"]
+size = Vector2(42, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8cq3"]
+size = Vector2(180, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3ct8"]
+size = Vector2(38, 180)
+
+[sub_resource type="InputEventKey" id="InputEventKey_5iiq5"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_mcppw"]
+events = [SubResource("InputEventKey_5iiq5")]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qvpjy")
+
+[node name="CanvasLayer game" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="background" type="ColorRect" parent="CanvasLayer game"]
+offset_left = -8432.0
+offset_top = -5172.0
+offset_right = 10330.0
+offset_bottom = 6176.0
+color = Color(0.53012, 0.58, 0.5104, 1)
+
+[node name="top wall" type="StaticBody2D" parent="CanvasLayer game"]
+position = Vector2(1920, 35)
+rotation = 3.14159
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer game/top wall"]
+offset_left = -46.0
+offset_right = 1967.0
+offset_bottom = 35.0
+color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer game/top wall"]
+position = Vector2(960, 87.5012)
+shape = SubResource("RectangleShape2D_vycb3")
+
+[node name="bottom wall" type="StaticBody2D" parent="CanvasLayer game"]
+position = Vector2(18, 1035)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer game/bottom wall"]
+offset_left = -54.0
+offset_top = 5.0
+offset_right = 1979.0
+offset_bottom = 45.0
+color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer game/bottom wall"]
+position = Vector2(962.5, 136)
+shape = SubResource("RectangleShape2D_g07lr")
+
+[node name="left loses" type="Area2D" parent="CanvasLayer game"]
+position = Vector2(3, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer game/left loses"]
+position = Vector2(-72, 539)
+shape = SubResource("RectangleShape2D_r84ms")
+
+[node name="right loses" type="Area2D" parent="CanvasLayer game"]
+position = Vector2(1886, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer game/right loses"]
+position = Vector2(126, 551.25)
+shape = SubResource("RectangleShape2D_7g1wa")
+
+[node name="starting countdown" type="Label" parent="CanvasLayer game"]
+offset_left = 848.0
+offset_top = 450.0
+offset_right = 1086.0
+offset_bottom = 634.0
+theme = ExtResource("5_gjjct")
+label_settings = SubResource("LabelSettings_g6ev2")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_8m1vr")
+metadata/_edit_use_anchors_ = true
+
+[node name="side separator" type="Line2D" parent="CanvasLayer game"]
+position = Vector2(960, 251.163)
+scale = Vector2(1, 25.1163)
+points = PackedVector2Array(0, -10, 0, 33)
+default_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="score left" type="Label" parent="CanvasLayer game"]
+anchors_preset = -1
+anchor_left = 0.397396
+anchor_top = 0.0194444
+anchor_right = 0.448438
+anchor_bottom = 0.186111
+text = "0"
+label_settings = SubResource("LabelSettings_00aax")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_52uja")
+metadata/_edit_use_anchors_ = true
+
+[node name="score right" type="Label" parent="CanvasLayer game"]
+anchors_preset = -1
+anchor_left = 0.565625
+anchor_top = 0.0194444
+anchor_right = 0.616667
+anchor_bottom = 0.186111
+text = "0"
+label_settings = SubResource("LabelSettings_00aax")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_2m6xa")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer player" type="CanvasLayer" parent="."]
+
+[node name="ball" type="CharacterBody2D" parent="CanvasLayer player"]
+position = Vector2(960, 540)
+scale = Vector2(0.511625, 0.508617)
+motion_mode = 1
+script = ExtResource("2_o76s1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer player/ball"]
+scale = Vector2(2.875, 2.875)
+texture = ExtResource("3_8sicf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer player/ball"]
+scale = Vector2(1, 0.992642)
+shape = SubResource("CircleShape2D_14inv")
+
+[node name="paddle left" type="AnimatableBody2D" parent="CanvasLayer player"]
+position = Vector2(62, 540)
+script = ExtResource("7_wfr2k")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer player/paddle left"]
+offset_left = -12.0
+offset_top = -90.0
+offset_right = 12.0
+offset_bottom = 90.0
+color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer player/paddle left"]
+shape = SubResource("RectangleShape2D_o3nmf")
+
+[node name="Collision detect left" type="Area2D" parent="CanvasLayer player/paddle left"]
+
+[node name="Collision detect left" type="CollisionShape2D" parent="CanvasLayer player/paddle left/Collision detect left"]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_xu74p")
+
+[node name="Paddle right" type="AnimatableBody2D" parent="CanvasLayer player"]
+position = Vector2(1859, 540)
+script = ExtResource("4_2uqnb")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer player/Paddle right"]
+offset_left = -12.0
+offset_top = -90.0
+offset_right = 12.0
+offset_bottom = 90.0
+color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer player/Paddle right"]
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_i8cq3")
+
+[node name="Collision detect right" type="Area2D" parent="CanvasLayer player/Paddle right"]
+
+[node name="Collision detect right" type="CollisionShape2D" parent="CanvasLayer player/Paddle right/Collision detect right"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_i3ct8")
+
+[node name="pause button" type="TextureButton" parent="CanvasLayer player"]
+anchors_preset = -1
+anchor_left = 0.485417
+anchor_top = 0.012037
+anchor_right = 0.514583
+anchor_bottom = 0.0638889
+grow_horizontal = 2
+toggle_mode = true
+shortcut = SubResource("Shortcut_mcppw")
+texture_normal = ExtResource("4_skglu")
+stretch_mode = 0
+script = ExtResource("9_dwgmg")
+metadata/_edit_use_anchors_ = true
+
+[node name="pause menu and end screen" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="pause menu and end screen" instance=ExtResource("13_hvmgn")]
+
+[connection signal="body_entered" from="CanvasLayer game/left loses" to="." method="_on_left_loses_body_entered"]
+[connection signal="body_entered" from="CanvasLayer game/right loses" to="." method="_on_right_loses_body_entered"]

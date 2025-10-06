@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://rygg2gnyeleu"]
+
+[ext_resource type="Theme" uid="uid://dhnakbdmxdro0" path="res://Themes/LCD (Default).tres" id="1_cprq4"]
+[ext_resource type="Texture2D" uid="uid://biyvvq2yseiwn" path="res://Assets/Images/home screen/Play button.png" id="2_uuyeb"]
+[ext_resource type="Script" uid="uid://dutuh2vs8au1q" path="res://Scripts/home screen/play_button.gd" id="3_sdnjh"]
+[ext_resource type="Script" uid="uid://drxarwcw0sn26" path="res://Scripts/home screen/how_to_play.gd" id="4_wu3lw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tbc8"]
+font_size = 216
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q72ps"]
+font_size = 125
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cprq4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="just another" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3875
+anchor_top = 0.283333
+anchor_right = 0.390582
+anchor_bottom = 0.284945
+offset_right = 279.083
+offset_bottom = 45.2592
+text = "just another"
+metadata/_edit_use_anchors_ = true
+
+[node name="pong" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3875
+anchor_top = 0.283333
+anchor_right = 0.392188
+anchor_bottom = 0.290122
+offset_right = 423.0
+offset_bottom = 190.667
+grow_horizontal = 2
+grow_vertical = 2
+text = "pong"
+label_settings = SubResource("LabelSettings_7tbc8")
+metadata/_edit_use_anchors_ = true
+
+[node name="game" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.557813
+anchor_top = 0.423148
+anchor_right = 0.558898
+anchor_bottom = 0.42476
+offset_right = 97.9166
+offset_bottom = 45.2593
+text = "game"
+metadata/_edit_use_anchors_ = true
+
+[node name="play button" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.449653
+anchor_top = 0.49537
+anchor_right = 0.550347
+anchor_bottom = 0.674383
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_uuyeb")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_sdnjh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.483333
+anchor_top = 0.735185
+anchor_right = 0.516667
+anchor_bottom = 0.794444
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "how to play?"
+flat = true
+script = ExtResource("4_wu3lw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0875
+anchor_right = 1.0
+anchor_bottom = 1.0875
+offset_top = 3.5
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "?"
+label_settings = SubResource("LabelSettings_q72ps")
+horizontal_alignment = 1
+vertical_alignment = 1

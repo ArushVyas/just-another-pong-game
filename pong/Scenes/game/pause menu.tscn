@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://neo4oor8eb6x"]
+
+[ext_resource type="Theme" uid="uid://dhnakbdmxdro0" path="res://Themes/LCD (Default).tres" id="1_6hsdh"]
+[ext_resource type="Script" uid="uid://ci4kbgb2a2gcl" path="res://Scripts/game/pause menu/pause_menu.gd" id="2_3ii8v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5fli"]
+font_size = 75
+font_color = Color(0.270588, 0.294118, 0.262745, 1)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6hsdh")
+script = ExtResource("2_3ii8v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.354167
+anchor_top = 0.290741
+anchor_right = 0.646354
+anchor_bottom = 0.709259
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 33
+alignment = 1
+
+[node name="game paused" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "-game paused-"
+label_settings = SubResource("LabelSettings_v5fli")
+metadata/_edit_use_anchors_ = true
+
+[node name="resume" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+metadata/_edit_use_anchors_ = true
+
+[node name="relaunch ball" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "relaunch ball"
+metadata/_edit_use_anchors_ = true
+
+[node name="quit game" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "quit game"
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/relaunch ball" to="." method="_on_relaunch_ball_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/quit game" to="." method="_on_quit_game_pressed"]
